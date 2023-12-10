@@ -157,3 +157,16 @@ std::string remover(const std::string& html)
 	std::regex htmlTags("<.*?>");
 	return std::regex_replace(html, htmlTags, "");
 }
+
+std::map<std::string, int> counter(const std::vector<std::string>& words)
+{
+	std::map<std::string, int> wordNum;
+
+	for (int i = 0; i < words.size(); ++i)
+	{
+		auto word = toLowerCase(words[i]);
+		wordNum[word]++;
+	}
+
+	return wordNum;
+}

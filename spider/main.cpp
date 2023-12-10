@@ -34,7 +34,7 @@ void threadPoolWorker() {
 		}
 	}
 }
-void parseLink(const Link& link, int depth)
+void parseLink(const Link& link, Client& client, int depth)
 {
 	try {
 
@@ -52,6 +52,8 @@ void parseLink(const Link& link, int depth)
 
 		std::string text = remover(html);
 		std::vector<std::string> words = indexer(text);
+		std::map<std::string, int> wordsTotal = counter(words);
+		client.wordsDoc(link, wordsTotal);
 
 		// TODO: Collect more links from HTML code and add them to the parser like that:
 
@@ -67,7 +69,7 @@ void parseLink(const Link& link, int depth)
 			size_t index = 0;
 			for (auto& subLink : links)
 			{
-				tasks.push([subLink, depth]() { parseLink(subLink, depth - 1); });
+				tasks.push([subLink, &client, depth]() { parseLink(subLink, client, depth - 1); });
 			}
 			cv.notify_one();
 		}
@@ -106,13 +108,11 @@ int main()
 
 		{
 			std::lock_guard<std::mutex> lock(mtx);
-			tasks.push([link]() { parseLink(link, 1); });
+			tasks.push([link, &client]() { parseLink(link, client, 1); });
 			cv.notify_one();
 		}
 
-
 		std::this_thread::sleep_for(std::chrono::seconds(2));
-
 
 		{
 			std::lock_guard<std::mutex> lock(mtx);

@@ -7,7 +7,7 @@ project(CppDiplomProject)
 # TODO: Define by your own needs:
 set(OPENSSL_ROOT_DIR "C:\\Program Files\\OpenSSL-Win64")
 
-set(BOOST_ROOT "C:\\Users\\Firef\\source\\repos\\boost_1_83_0\\boost")
+set(BOOST_ROOT "C:\\Users\\Firef\\source\\repos\\boost_1_83_0\\stage")
 
 set(libpqxx_DIR "C:\\Users\\Firef\\source\\repos\\libpqxx-master")
 
@@ -19,7 +19,7 @@ add_compile_definitions(_WIN32_WINNT=0x0A01)
 
 
 # Boost:
-find_package(Boost 1.83.0 REQUIRED COMPONENTS)
+find_package(Boost 1.83.0 REQUIRED COMPONENTS system thread locale)
 
 if(NOT Boost_FOUND)
     message(FATAL_ERROR "Could not find Boost")

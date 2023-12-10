@@ -3,6 +3,7 @@
 Config::Config(const std::string& filename)
 {
     Config::parser(filename);
+
 }
 
 std::string Config::getConfig(const std::string& key) const

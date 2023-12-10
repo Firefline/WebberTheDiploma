@@ -15,7 +15,6 @@
 #include "../indexer/indexer.h"
 #include "../database/database.h"
 
-
 void httpServer(tcp::acceptor& acceptor, tcp::socket& socket)
 {
 	acceptor.async_accept(socket,

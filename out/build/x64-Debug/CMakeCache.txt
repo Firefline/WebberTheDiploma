@@ -32,8 +32,14 @@ Boost_CHRONO_LIBRARY_DEBUG:FILEPATH=Boost_CHRONO_LIBRARY_DEBUG-NOTFOUND
 //Boost chrono library (release)
 Boost_CHRONO_LIBRARY_RELEASE:FILEPATH=Boost_CHRONO_LIBRARY_RELEASE-NOTFOUND
 
+//Boost COMPONENTSe library (debug)
+Boost_COMPONENTSE_LIBRARY_DEBUG:FILEPATH=Boost_COMPONENTSE_LIBRARY_DEBUG-NOTFOUND
+
+//Boost COMPONENTSe library (release)
+Boost_COMPONENTSE_LIBRARY_RELEASE:FILEPATH=Boost_COMPONENTSE_LIBRARY_RELEASE-NOTFOUND
+
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=Boost_DIR-NOTFOUND
+Boost_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/Boost-1.83.0
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0
@@ -44,11 +50,9 @@ Boost_LOCALE.HPP_LIBRARY_DEBUG:FILEPATH=Boost_LOCALE.HPP_LIBRARY_DEBUG-NOTFOUND
 //Boost locale.hpp library (release)
 Boost_LOCALE.HPP_LIBRARY_RELEASE:FILEPATH=Boost_LOCALE.HPP_LIBRARY_RELEASE-NOTFOUND
 
-//Boost locale library (debug)
-Boost_LOCALE_LIBRARY_DEBUG:FILEPATH=Boost_LOCALE_LIBRARY_DEBUG-NOTFOUND
+Boost_LOCALE_LIBRARY_DEBUG:STRING=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/libboost_locale-vc143-mt-gd-x64-1_83.lib
 
-//Boost locale library (release)
-Boost_LOCALE_LIBRARY_RELEASE:FILEPATH=Boost_LOCALE_LIBRARY_RELEASE-NOTFOUND
+Boost_LOCALE_LIBRARY_RELEASE:STRING=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/libboost_locale-vc143-mt-x64-1_83.lib
 
 //Boost system.hpp library (debug)
 Boost_SYSTEM.HPP_LIBRARY_DEBUG:FILEPATH=Boost_SYSTEM.HPP_LIBRARY_DEBUG-NOTFOUND
@@ -56,11 +60,9 @@ Boost_SYSTEM.HPP_LIBRARY_DEBUG:FILEPATH=Boost_SYSTEM.HPP_LIBRARY_DEBUG-NOTFOUND
 //Boost system.hpp library (release)
 Boost_SYSTEM.HPP_LIBRARY_RELEASE:FILEPATH=Boost_SYSTEM.HPP_LIBRARY_RELEASE-NOTFOUND
 
-//Boost system library (debug)
-Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=Boost_SYSTEM_LIBRARY_DEBUG-NOTFOUND
+Boost_SYSTEM_LIBRARY_DEBUG:STRING=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/libboost_system-vc143-mt-gd-x64-1_83.lib
 
-//Boost system library (release)
-Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=Boost_SYSTEM_LIBRARY_RELEASE-NOTFOUND
+Boost_SYSTEM_LIBRARY_RELEASE:STRING=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/libboost_system-vc143-mt-x64-1_83.lib
 
 //Boost thread.hpp library (debug)
 Boost_THREAD.HPP_LIBRARY_DEBUG:FILEPATH=Boost_THREAD.HPP_LIBRARY_DEBUG-NOTFOUND
@@ -68,11 +70,9 @@ Boost_THREAD.HPP_LIBRARY_DEBUG:FILEPATH=Boost_THREAD.HPP_LIBRARY_DEBUG-NOTFOUND
 //Boost thread.hpp library (release)
 Boost_THREAD.HPP_LIBRARY_RELEASE:FILEPATH=Boost_THREAD.HPP_LIBRARY_RELEASE-NOTFOUND
 
-//Boost thread library (debug)
-Boost_THREAD_LIBRARY_DEBUG:FILEPATH=Boost_THREAD_LIBRARY_DEBUG-NOTFOUND
+Boost_THREAD_LIBRARY_DEBUG:STRING=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/libboost_thread-vc143-mt-gd-x64-1_83.lib
 
-//Boost thread library (release)
-Boost_THREAD_LIBRARY_RELEASE:FILEPATH=Boost_THREAD_LIBRARY_RELEASE-NOTFOUND
+Boost_THREAD_LIBRARY_RELEASE:STRING=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/libboost_thread-vc143-mt-x64-1_83.lib
 
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/Hostx64/x64/lib.exe
@@ -430,6 +430,21 @@ Z_VCPKG_PWSH_PATH:FILEPATH=Z_VCPKG_PWSH_PATH-NOTFOUND
 // triplet
 _VCPKG_INSTALLED_DIR:PATH=C:/Users/Firef/source/repos/Catch2/vcpkg/installed
 
+//The directory containing a CMake configuration file for boost_chrono.
+boost_chrono_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_chrono-1.83.0
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_headers-1.83.0
+
+//The directory containing a CMake configuration file for boost_locale.
+boost_locale_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_locale-1.83.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_system-1.83.0
+
+//The directory containing a CMake configuration file for boost_thread.
+boost_thread_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_thread-1.83.0
+
 //Value Computed by CMake
 libpqxx_BINARY_DIR:STATIC=C:/Users/Firef/source/repos/Webber/out/build/x64-Debug/libpqxx-build
 
@@ -452,6 +467,10 @@ Boost_ATOMIC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 Boost_CHRONO_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_CHRONO_LIBRARY_RELEASE
 Boost_CHRONO_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_COMPONENTSE_LIBRARY_DEBUG
+Boost_COMPONENTSE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_COMPONENTSE_LIBRARY_RELEASE
+Boost_COMPONENTSE_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_DIR
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_INCLUDE_DIR
@@ -657,7 +676,7 @@ CPACK_SOURCE_7Z-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_SOURCE_ZIP
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Users/Firef/source/repos/boost_1_83_0][c ][v1.83.0(1.83.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/Boost-1.83.0/BoostConfig.cmake][cfound components: system thread locale ][v1.83.0(1.83.0)]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[C:/Program Files/PostgreSQL/15/lib/libcrypto.lib][C:/Program Files/PostgreSQL/15/include][c ][v3.0.7()]
 //Details about finding PostgreSQL
@@ -729,7 +748,7 @@ Z_VCPKG_POWERSHELL_PATH:INTERNAL=C:/Windows/System32/WindowsPowerShell/v1.0/powe
 //Vcpkg root directory
 Z_VCPKG_ROOT_DIR:INTERNAL=C:/Users/Firef/source/repos/Catch2/vcpkg
 //Last used BOOST_ROOT value.
-_BOOST_ROOT_LAST:INTERNAL=C:\Users\Firef\source\repos\boost_1_83_0\boost
+_BOOST_ROOT_LAST:INTERNAL=C:\Users\Firef\source\repos\boost_1_83_0
 //Components requested for this build tree.
 _Boost_COMPONENTS_SEARCHED:INTERNAL=
 //Last used Boost_INCLUDE_DIR value.
@@ -740,6 +759,16 @@ _Boost_NAMESPACE_LAST:INTERNAL=boost
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Users/Firef/source/repos/Webber/out/install/x64-Debug
+//ADVANCED property for variable: boost_chrono_DIR
+boost_chrono_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_headers_DIR
+boost_headers_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_locale_DIR
+boost_locale_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_system_DIR
+boost_system_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_thread_DIR
+boost_thread_DIR-ADVANCED:INTERNAL=1
 //Result of TRY_COMPILE
 need_fslib:INTERNAL=TRUE
 
