@@ -34,7 +34,7 @@ void threadPoolWorker() {
 		}
 	}
 }
-void parseLink(const Link& link, Client& client, int depth)
+void parseLink(const Link& link, Client& client, int depth, int index, int count)
 {
 	try {
 
@@ -49,29 +49,37 @@ void parseLink(const Link& link, Client& client, int depth)
 		}
 
 		// TODO: Parse HTML code here on your own
-
+		std::unordered_set<Link> links = getLinks(html, link.protocol, link.hostName);
 		std::string text = remover(html);
 		std::vector<std::string> words = indexer(text);
 		std::map<std::string, int> wordsTotal = counter(words);
-		client.wordsDoc(link, wordsTotal);
+		client.wordsDoc_new(link, wordsTotal);
 
 		// TODO: Collect more links from HTML code and add them to the parser like that:
 
-		std::vector<Link> links = {
+		/*std::vector<Link> links = {
 			{ProtocolType::HTTPS, "en.wikipedia.org", "/wiki/Wikipedia"},
 			{ProtocolType::HTTPS, "wikimediafoundation.org", "/"},
-		};
+		};*/
 
 		if (depth > 0) {
 			std::lock_guard<std::mutex> lock(mtx);
 
-			size_t count = links.size();
-			size_t index = 0;
+			int index = 0;
+			int count = links.size();
+
 			for (auto& subLink : links)
 			{
-				tasks.push([subLink, &client, depth]() { parseLink(subLink, client, depth - 1); });
+				bool wasCreated = client.wordsDoc_exists(link);
+				if (wasCreated == false)
+				{
+					tasks.push([subLink, &client, depth, index, count]() { parseLink(subLink, client, depth - 1, index, count); });
+					index++;
+				}
+				
 			}
 			cv.notify_one();
+
 		}
 	}
 	catch (const std::exception& e)
@@ -87,6 +95,8 @@ int main()
 	try {
 		Config config("C:/Users/Firef/source/repos/Webber/config/config.ini");
 		Client client (config);
+
+		int depth = atoi(config.getConfig("search_depth").c_str());
 
 		std::cout << config.getConfig("db_host") << std::endl;
 		std::cout << config.getConfig("db_port") << std::endl;
@@ -108,7 +118,7 @@ int main()
 
 		{
 			std::lock_guard<std::mutex> lock(mtx);
-			tasks.push([link, &client]() { parseLink(link, client, 1); });
+			tasks.push([link, &client, depth]() { parseLink(link, client, depth, 1, 1); });
 			cv.notify_one();
 		}
 

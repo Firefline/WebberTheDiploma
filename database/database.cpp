@@ -14,8 +14,8 @@ void Database::tableCreator()
 {
 	pqxx::work table{ c };
 
-	table.exec("CREATE TABLE IF NOT EXISTS words (id serial primary key, word varchar(60) not null); ");
-	table.exec("CREATE TABLE IF NOT EXISTS documents (id serial primary key, query text not null, host text not null); ");
-	table.exec("CREATE TABLE IF NOT EXISTS words_documents (id serial primary key, word_id integer not null references words(id), document_id integer not null references documents(id), total integer not null); ");
+	table.exec("CREATE TABLE IF NOT EXISTS words (id varchar(255) not null primary key); ");
+	table.exec("CREATE TABLE IF NOT EXISTS documents (id serial primary key, host text not null, query text not null); ");
+	table.exec("CREATE TABLE IF NOT EXISTS words_documents (id serial primary key, word_id varchar(255) not null references words(id), document_id integer not null references documents(id), total integer not null); ");
 	table.commit();
 }

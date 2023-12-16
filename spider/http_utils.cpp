@@ -165,8 +165,81 @@ std::map<std::string, int> counter(const std::vector<std::string>& words)
 	for (int i = 0; i < words.size(); ++i)
 	{
 		auto word = toLowerCase(words[i]);
-		wordNum[word]++;
+		if (wordNum.count(word) == 0)
+		{
+			wordNum[word] = 1;
+		}
+		else
+		{
+			wordNum[word]++;
+		}
+		
 	}
 
 	return wordNum;
+}
+
+std::unordered_set<Link> getLinks(const std::string& html, ProtocolType protocol, const std::string& hostName)
+{
+	std::vector<std::string> links;
+	std::unordered_set<Link> result;
+
+	std::regex htmlTeg("<a href=\"(.*?)\"");
+
+	auto words_begin = std::sregex_iterator(html.begin(), html.end(), htmlTeg);
+	auto words_end = std::sregex_iterator();
+
+	for (std::sregex_iterator i = words_begin; i != words_end; ++i) 
+	{
+		std::smatch match = *i;
+		std::string match_str = match.str();
+		links.push_back(match_str.substr(9, match_str.size() - 10));
+
+	}
+
+	for (const auto& link : links)
+	{
+		if (link[0] == '/')
+		{
+			result.insert({ ProtocolType::HTTPS, hostName, link });
+		}
+		else if ((link.substr(0, 7) == "http://") || (link.substr(0, 8) == "https://"))
+		{
+			//Link relust_temp;
+			ProtocolType protocolTemp;
+			std::string queryTemp;
+			std::string hostNameTemp;
+
+			std::string removeTag;
+
+			if (link.substr(0, 7) == "http://")
+			{
+				removeTag = link.substr(7);
+				protocolTemp = ProtocolType::HTTP;
+			}
+			else if (link.substr(0, 8) == "https://")
+			{
+				removeTag = link.substr(8);
+				protocolTemp = ProtocolType::HTTPS;
+			}
+			
+			size_t slash = removeTag.find('/');
+			hostNameTemp = removeTag.substr(0, slash);
+
+			if (slash == std::string::npos)
+			{
+				queryTemp = "/";
+			}
+			else
+			{
+				queryTemp = removeTag.substr(slash);
+			}
+
+			result.insert({ protocolTemp, hostNameTemp, queryTemp });
+		}
+
+	}
+
+	return result;
+
 }
