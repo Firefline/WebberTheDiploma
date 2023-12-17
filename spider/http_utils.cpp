@@ -179,17 +179,17 @@ std::map<std::string, int> counter(const std::vector<std::string>& words)
 	return wordNum;
 }
 
-std::unordered_set<Link> getLinks(const std::string& html, ProtocolType protocol, const std::string& hostName)
+std::vector<Link> getLinks(const std::string& html, ProtocolType protocol, const std::string& hostName)
 {
 	std::vector<std::string> links;
-	std::unordered_set<Link> result;
+	std::vector<Link> result;
 
 	std::regex htmlTeg("<a href=\"(.*?)\"");
 
 	auto words_begin = std::sregex_iterator(html.begin(), html.end(), htmlTeg);
 	auto words_end = std::sregex_iterator();
 
-	for (std::sregex_iterator i = words_begin; i != words_end; ++i) 
+	for (std::sregex_iterator i = words_begin; i != words_end; ++i)
 	{
 		std::smatch match = *i;
 		std::string match_str = match.str();
@@ -201,7 +201,7 @@ std::unordered_set<Link> getLinks(const std::string& html, ProtocolType protocol
 	{
 		if (link[0] == '/')
 		{
-			result.insert({ ProtocolType::HTTPS, hostName, link });
+			result.push_back({ ProtocolType::HTTPS, hostName, link });
 		}
 		else if ((link.substr(0, 7) == "http://") || (link.substr(0, 8) == "https://"))
 		{
@@ -222,7 +222,7 @@ std::unordered_set<Link> getLinks(const std::string& html, ProtocolType protocol
 				removeTag = link.substr(8);
 				protocolTemp = ProtocolType::HTTPS;
 			}
-			
+
 			size_t slash = removeTag.find('/');
 			hostNameTemp = removeTag.substr(0, slash);
 
@@ -235,7 +235,7 @@ std::unordered_set<Link> getLinks(const std::string& html, ProtocolType protocol
 				queryTemp = removeTag.substr(slash);
 			}
 
-			result.insert({ protocolTemp, hostNameTemp, queryTemp });
+			result.push_back({ protocolTemp, hostNameTemp, queryTemp });
 		}
 
 	}

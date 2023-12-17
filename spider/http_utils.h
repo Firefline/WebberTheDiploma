@@ -12,4 +12,4 @@ std::string remover(const std::string& html);
 
 std::map<std::string, int> counter(const std::vector<std::string>& words);
 
-std::unordered_set<Link> getLinks(const std::string& html, ProtocolType protocol, const std::string& hostName);
+std::vector<Link> getLinks(const std::string& html, ProtocolType protocol, const std::string& hostName);

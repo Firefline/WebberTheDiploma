@@ -49,7 +49,7 @@ void parseLink(const Link& link, Client& client, int depth, int index, int count
 		}
 
 		// TODO: Parse HTML code here on your own
-		std::unordered_set<Link> links = getLinks(html, link.protocol, link.hostName);
+		std::vector<Link> links = getLinks(html, link.protocol, link.hostName);
 		std::string text = remover(html);
 		std::vector<std::string> words = indexer(text);
 		std::map<std::string, int> wordsTotal = counter(words);
@@ -97,7 +97,7 @@ int main()
 		Client client (config);
 
 		int depth = atoi(config.getConfig("search_depth").c_str());
-
+		
 		std::cout << config.getConfig("db_host") << std::endl;
 		std::cout << config.getConfig("db_port") << std::endl;
 		std::cout << config.getConfig("db_name") << std::endl;
