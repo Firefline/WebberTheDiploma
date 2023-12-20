@@ -11,7 +11,9 @@ add_executable(HttpServerApp
 	../config/config.cpp
 	../config/config.ini
 	../database/database.h
-	../database/database.cpp)
+	../database/database.cpp
+	../indexer/indexer.h
+	../indexer/indexer.cpp)
 
 target_compile_features(HttpServerApp PRIVATE cxx_std_17) 
 

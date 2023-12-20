@@ -15,14 +15,14 @@
 #include "../indexer/indexer.h"
 #include "../database/database.h"
 
-void httpServer(tcp::acceptor& acceptor, tcp::socket& socket)
+void httpServer(tcp::acceptor& acceptor, tcp::socket& socket, Server& server)
 {
 	acceptor.async_accept(socket,
 		[&](beast::error_code ec)
 		{
 			if (!ec)
-				std::make_shared<HttpConnection>(std::move(socket))->start();
-			httpServer(acceptor, socket);
+				std::make_shared<HttpConnection>(std::move(socket), server)->start();
+			httpServer(acceptor, socket, server);
 		});
 }
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 
 		tcp::acceptor acceptor{ioc, { address, port }};
 		tcp::socket socket{ioc};
-		httpServer(acceptor, socket);
+		httpServer(acceptor, socket, server);
 
 		system("start http://localhost:8080");
 

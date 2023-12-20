@@ -39,7 +39,7 @@ Boost_COMPONENTSE_LIBRARY_DEBUG:FILEPATH=Boost_COMPONENTSE_LIBRARY_DEBUG-NOTFOUN
 Boost_COMPONENTSE_LIBRARY_RELEASE:FILEPATH=Boost_COMPONENTSE_LIBRARY_RELEASE-NOTFOUND
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/Boost-1.83.0
+Boost_DIR:PATH=C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/Boost-1.84.0
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0
@@ -81,7 +81,7 @@ CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Too
 CMAKE_BUILD_TYPE:STRING=Debug
 
 //No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/Hostx64/x64/cl.exe
+CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /EHsc
@@ -102,7 +102,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
 //No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/Hostx64/x64/cl.exe
+CMAKE_C_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS
@@ -431,19 +431,19 @@ Z_VCPKG_PWSH_PATH:FILEPATH=Z_VCPKG_PWSH_PATH-NOTFOUND
 _VCPKG_INSTALLED_DIR:PATH=C:/Users/Firef/source/repos/Catch2/vcpkg/installed
 
 //The directory containing a CMake configuration file for boost_chrono.
-boost_chrono_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_chrono-1.83.0
+boost_chrono_DIR:PATH=C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/boost_chrono-1.84.0
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_headers-1.83.0
+boost_headers_DIR:PATH=C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/boost_headers-1.84.0
 
 //The directory containing a CMake configuration file for boost_locale.
-boost_locale_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_locale-1.83.0
+boost_locale_DIR:PATH=C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/boost_locale-1.84.0
 
 //The directory containing a CMake configuration file for boost_system.
-boost_system_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_system-1.83.0
+boost_system_DIR:PATH=C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/boost_system-1.84.0
 
 //The directory containing a CMake configuration file for boost_thread.
-boost_thread_DIR:PATH=C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/boost_thread-1.83.0
+boost_thread_DIR:PATH=C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/boost_thread-1.84.0
 
 //Value Computed by CMake
 libpqxx_BINARY_DIR:STATIC=C:/Users/Firef/source/repos/Webber/out/build/x64-Debug/libpqxx-build
@@ -506,9 +506,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/Firef/source/repos/Webber/out/build/x64-De
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=27
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe
 //Path to cpack program executable.
@@ -642,7 +642,7 @@ CMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO
 CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.26
+CMAKE_ROOT:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -676,7 +676,7 @@ CPACK_SOURCE_7Z-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_SOURCE_ZIP
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Users/Firef/source/repos/boost_1_83_0/stage/lib/cmake/Boost-1.83.0/BoostConfig.cmake][cfound components: system thread locale ][v1.83.0(1.83.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Users/Firef/source/repos/boost_1_84_0/stage/lib/cmake/Boost-1.84.0/BoostConfig.cmake][cfound components: system thread locale ][v1.84.0(1.83.0)]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[C:/Program Files/PostgreSQL/15/lib/libcrypto.lib][C:/Program Files/PostgreSQL/15/include][c ][v3.0.7()]
 //Details about finding PostgreSQL

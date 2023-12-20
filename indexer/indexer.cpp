@@ -2,7 +2,7 @@
 #include <boost/locale.hpp>
 #include <regex>
 
-using namespace boost::locale;
+//using namespace boost::locale;
 
 std::string toLowerCase(const std::string& word)
 {

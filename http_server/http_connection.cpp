@@ -37,8 +37,8 @@ std::string convert_to_utf8(const std::string& str) {
 	return url_decoded;
 }
 
-HttpConnection::HttpConnection(tcp::socket socket)
-	: socket_(std::move(socket))
+HttpConnection::HttpConnection(tcp::socket socket, Server& server)
+	: socket_(std::move(socket)), server_(server)
 {
 }
 
@@ -157,11 +157,12 @@ void HttpConnection::createResponsePost()
 		}
 
 		// TODO: Fetch your own search results here
+		std::vector<std::string> searchResult = server_.searchEngine(utf8value);
 
-		std::vector<std::string> searchResult = {
+		/*std::vector<std::string> searchResult = {
 			"https://en.wikipedia.org/wiki/Main_Page",
 			"https://en.wikipedia.org/wiki/Wikipedia",
-		};
+		};*/
 
 
 		response_.set(http::field::content_type, "text/html");

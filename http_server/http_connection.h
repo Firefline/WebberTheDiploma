@@ -5,6 +5,8 @@
 #include <boost/beast/version.hpp>
 #include <boost/asio.hpp>
 
+#include"server.h"
+
 namespace beast = boost::beast;
 namespace http = beast::http;
 namespace net = boost::asio;
@@ -15,6 +17,7 @@ class HttpConnection : public std::enable_shared_from_this<HttpConnection>
 protected:
 
 	tcp::socket socket_;
+	Server& server_;
 
 	beast::flat_buffer buffer_{8192};
 
@@ -36,7 +39,7 @@ protected:
 	void checkDeadline();
 
 public:
-	HttpConnection(tcp::socket socket);
+	HttpConnection(tcp::socket socket, Server& server);
 	void start();
 };
 
