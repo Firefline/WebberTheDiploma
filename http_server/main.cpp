@@ -38,7 +38,8 @@ int main(int argc, char* argv[])
 		Server server(config);
 
 		auto const address = net::ip::make_address("0.0.0.0");
-		unsigned short port = 8080;
+		//unsigned short port = 8080;
+		unsigned short port = atoi(config.getConfig("http_server_port").c_str());
 
 		net::io_context ioc{1};
 

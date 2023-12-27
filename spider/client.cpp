@@ -18,7 +18,6 @@ void Client::wordsDoc_new(const Link& link, const std::map<std::string, int>& wo
 	{
 		return;
 	}
-
 	
 	pqxx::work doc_trx{ c };
 	pqxx::result res = doc_trx.exec_prepared("insert_document", link.hostName, link.query);

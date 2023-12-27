@@ -34,7 +34,7 @@ void threadPoolWorker() {
 		}
 	}
 }
-void parseLink(const Link& link, Client& client, int depth, int index, int count)
+void parseLink(const Link& link, Client& client, int& depth, int index, int count)
 {
 	try {
 
@@ -70,10 +70,11 @@ void parseLink(const Link& link, Client& client, int depth, int index, int count
 
 			for (auto& subLink : links)
 			{
-				bool wasCreated = client.wordsDoc_exists(link);
-				if (wasCreated == false)
+				bool wasCreated = client.wordsDoc_exists(subLink);
+				if (wasCreated == false && depth > 0)
 				{
-					tasks.push([subLink, &client, depth, index, count]() { parseLink(subLink, client, depth - 1, index, count); });
+					tasks.push([subLink, &client, &depth, index, count]() { parseLink(subLink, client, depth, index, count); });
+					depth--;
 					index++;
 				}
 				
@@ -114,11 +115,12 @@ int main()
 			threadPool.emplace_back(threadPoolWorker);
 		}
 
-		Link link{ ProtocolType::HTTPS, "en.wikipedia.org", "/wiki/Main_Page" };
+		//Link link{ ProtocolType::HTTPS, "en.wikipedia.org", "/wiki/Main_Page" }; //en.wikipedia.org/wiki/Main_Page
+		Link link(startLinks(config.getConfig("url")));
 
 		{
 			std::lock_guard<std::mutex> lock(mtx);
-			tasks.push([link, &client, depth]() { parseLink(link, client, depth, 1, 1); });
+			tasks.push([link, &client, &depth]() { parseLink(link, client, depth, 1, 1); });
 			cv.notify_one();
 		}
 

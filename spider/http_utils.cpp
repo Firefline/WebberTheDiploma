@@ -243,3 +243,42 @@ std::vector<Link> getLinks(const std::string& html, ProtocolType protocol, const
 	return result;
 
 }
+
+Link startLinks(const std::string& link)
+{
+	Link result;
+
+	if (link.substr(0, 7) == "http://")
+	{
+		std::string withoutProtocol = link.substr(7);
+		size_t slashPos = withoutProtocol.find('/');
+		result.hostName = withoutProtocol.substr(0, slashPos);
+		if (slashPos == std::string::npos)
+		{
+			result.query = "/";
+		}
+		else
+		{
+			result.query = withoutProtocol.substr(slashPos);
+		}
+
+		result.protocol = ProtocolType::HTTP;
+	}
+	else if (link.substr(0, 8) == "https://")
+	{
+		std::string withoutProtocol = link.substr(8);
+		size_t slashPos = withoutProtocol.find('/');
+		result.hostName = withoutProtocol.substr(0, slashPos);
+		if (slashPos == std::string::npos)
+		{
+			result.query = "/";
+		}
+		else
+		{
+			result.query = withoutProtocol.substr(slashPos);
+		}
+		result.protocol = ProtocolType::HTTPS;
+	}
+
+	return result;
+}
