@@ -5,7 +5,7 @@ Client::Client(const Config& config) : Database(config)
 	c.prepare("insert_word", "INSERT INTO words (id) VALUES ($1) ON CONFLICT (id) DO NOTHING;");
 	c.prepare("insert_document", "INSERT INTO documents (host, query) VALUES ($1, $2) RETURNING id;");
 	c.prepare("insert_word_document", "INSERT INTO words_documents (word_id, document_id, total) VALUES ($1, $2, $3) RETURNING id;");
-	c.prepare("document_counter", "SELECT COUNT(*) FROM documents WHERE query=$1 AND host=$2");
+	c.prepare("document_counter", "SELECT COUNT(*) FROM documents WHERE host=$1 AND query=$2");
 
 }
 
@@ -42,7 +42,7 @@ void Client::wordsDoc_new(const Link& link, const std::map<std::string, int>& wo
 bool Client::wordsDoc_exists(const Link& link)
 {
 	pqxx::work doc_trx{ c };
-	pqxx::result res = doc_trx.exec_prepared("document_counter", link.query, link.hostName);
+	pqxx::result res = doc_trx.exec_prepared("document_counter", link.hostName, link.query);
 	doc_trx.commit();
 
 	if (!res.empty())
